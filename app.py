@@ -523,12 +523,19 @@ def tab_dashboard(df: pd.DataFrame) -> None:
                    annotation_font_color=ACCENT3,
                    line_width=1, line_color=ACCENT3)
 
+    # Merge legend config with template
+    layout_config = PLOTLY_TEMPLATE["layout"].copy()
+    layout_config["legend"] = dict(
+        bgcolor="rgba(0,0,0,0)",
+        orientation="h",
+        y=1.05
+    )
+    
     fig3.update_layout(
         title="Skill Retention vs High Burnout Rate by Weekly AI Hours",
         xaxis_title="Weekly GenAI Hours",
-        legend=dict(orientation="h", y=1.05),
-        **PLOTLY_TEMPLATE["layout"],
         height=420, margin=dict(l=0,r=0,t=40,b=0),
+        **layout_config,
     )
     fig3.update_yaxes(title_text="Avg Skill Retention Score",
                       secondary_y=False,
