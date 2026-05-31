@@ -1,6 +1,6 @@
 """
 ╔══════════════════════════════════════════════════════════════════╗
-║         AI STUDENT IMPACT ANALYSER  —  Streamlit App            ║
+║         AI STUDENT IMPACT ANALYSER  —  Streamlit App             ║
 ║  Tab 1 : Macro Insights & Analytics Dashboard                    ║
 ║  Tab 2 : Personalised AI Safe-Usage Recommendations              ║
 ║  Tab 3 : AI Student Impact Predictor (ML Inference)              ║
@@ -325,11 +325,13 @@ hr.styled {{ border: none; border-top: 1px solid #2D3748; margin: 24px 0; }}
 # ─────────────────────────────────────────────────────────────────────────────
 # CONSTANTS
 # ─────────────────────────────────────────────────────────────────────────────
-DATA_PATH    = "data/ai_student_impact_dataset (1).csv"
-BURNOUT_PKL  = "models/burnout_model.pkl"
-GPA_PKL      = "models/gpa_model.pkl"
-LE_PKL       = "models/label_encoder.pkl"
-PIPE_PKL     = "models/feature_pipeline.pkl"
+# Get script directory for robust path resolution (works locally & on Streamlit Cloud)
+SCRIPT_DIR   = os.path.dirname(os.path.abspath(__file__))
+DATA_PATH    = os.path.join(SCRIPT_DIR, "data/ai_student_impact_dataset.csv")
+BURNOUT_PKL  = os.path.join(SCRIPT_DIR, "models/burnout_model.pkl")
+GPA_PKL      = os.path.join(SCRIPT_DIR, "models/gpa_model.pkl")
+LE_PKL       = os.path.join(SCRIPT_DIR, "models/label_encoder.pkl")
+PIPE_PKL     = os.path.join(SCRIPT_DIR, "models/feature_pipeline.pkl")
 
 ORDINAL_FEATURES = {
     "Year_of_Study"           : ["Freshman","Sophomore","Junior","Senior","Graduate"],

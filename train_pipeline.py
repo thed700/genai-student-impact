@@ -34,11 +34,13 @@ from sklearn.metrics          import (classification_report,
 from xgboost import XGBClassifier, XGBRegressor
 
 # ── Paths ────────────────────────────────────────────────────────────────────
-DATA_PATH           = "data/ai_student_impact_dataset (1).csv"
-BURNOUT_MODEL_PATH  = "models/burnout_model.pkl"
-GPA_MODEL_PATH      = "models/gpa_model.pkl"
-LABEL_ENC_PATH      = "models/label_encoder.pkl"
-FEAT_PIPE_PATH      = "models/feature_pipeline.pkl"
+# Get script directory for robust path resolution
+SCRIPT_DIR          = os.path.dirname(os.path.abspath(__file__))
+DATA_PATH           = os.path.join(SCRIPT_DIR, "data/ai_student_impact_dataset.csv")
+BURNOUT_MODEL_PATH  = os.path.join(SCRIPT_DIR, "models/burnout_model.pkl")
+GPA_MODEL_PATH      = os.path.join(SCRIPT_DIR, "models/gpa_model.pkl")
+LABEL_ENC_PATH      = os.path.join(SCRIPT_DIR, "models/label_encoder.pkl")
+FEAT_PIPE_PATH      = os.path.join(SCRIPT_DIR, "models/feature_pipeline.pkl")
 
 # ─────────────────────────────────────────────────────────────────────────────
 # 1. DATA LOADING
