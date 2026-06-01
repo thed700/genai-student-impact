@@ -14,9 +14,9 @@ venv/
 env/
 
 # Data (large files — add via Git LFS or store separately)
-data/*.csv
-data/*.parquet
-data/*.json
+#data/*.csv
+#data/*.parquet
+#data/*.json
 
 # Jupyter
 .ipynb_checkpoints/
