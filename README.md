@@ -30,8 +30,7 @@
 ## 📌 Live Demo
 
 > **⚡ Try the interactive dashboard instantly:**
-> [`https://your-app.streamlit.app`](https://your-app.streamlit.app)
->
+> [`https://your-app.streamlit.app`](https://genai-student-impact-vnbapw9uydqmjxddggu6vj.streamlit.app/)
 > *Deploy your own in 2 minutes — see [How to Run](#-how-to-run-locally) below.*
 
 ---
