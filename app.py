@@ -805,11 +805,16 @@ def tab_predictor(df: pd.DataFrame) -> None:
 
         with fc1:
             inp_major  = st.selectbox("🏫 Major Category",
-                                      sorted(df["Major_Category"].unique()))
+                                      sorted(df["Major_Category"].unique()),
+                                      key="predictor_major_select")
+            
             inp_year   = st.selectbox("📅 Year of Study",
-                                      ["Freshman","Sophomore","Junior","Senior","Graduate"])
+                                      ["Freshman","Sophomore","Junior","Senior","Graduate"],
+                                      key="predictor_year_select") # Xatolikni aynan shu satr tuzatadi
+            
             inp_policy = st.selectbox("🏛️ Institutional AI Policy",
-                                      sorted(df["Institutional_Policy"].unique()))
+                                      sorted(df["Institutional_Policy"].unique()),
+                                      key="predictor_policy_select")
 
         with fc2:
             inp_pre_gpa    = st.slider("📈 Pre-Semester GPA",
