@@ -622,13 +622,16 @@ def tab_recommendations(df: pd.DataFrame) -> None:
     c1, c2, c3 = st.columns(3)
     with c1:
         major = st.selectbox("🏫 Your Major Category",
-                             sorted(df["Major_Category"].unique()))
+                             sorted(df["Major_Category"].unique()),
+                             key="recommendation_major_select")
     with c2:
         year  = st.selectbox("📅 Year of Study",
-                             ["Freshman","Sophomore","Junior","Senior","Graduate"])
+                             ["Freshman","Sophomore","Junior","Senior","Graduate"],
+                             key="recommendation_year_select")  # FIX: Unique key added to prevent clash with Tab 3
     with c3:
         policy = st.selectbox("🏛️ Institutional AI Policy",
-                              sorted(df["Institutional_Policy"].unique()))
+                              sorted(df["Institutional_Policy"].unique()),
+                              key="recommendation_policy_select")
 
     # Filter
     filtered = df[
@@ -810,7 +813,7 @@ def tab_predictor(df: pd.DataFrame) -> None:
             
             inp_year   = st.selectbox("📅 Year of Study",
                                       ["Freshman","Sophomore","Junior","Senior","Graduate"],
-                                      key="predictor_year_select") # Xatolikni aynan shu satr tuzatadi
+                                      key="final_predictor_year_unique_key") # FIX: Completely isolated unique key name
             
             inp_policy = st.selectbox("🏛️ Institutional AI Policy",
                                       sorted(df["Institutional_Policy"].unique()),
@@ -826,11 +829,14 @@ def tab_predictor(df: pd.DataFrame) -> None:
 
         with fc3:
             inp_use_case   = st.selectbox("🛠️ Primary AI Use Case",
-                                          sorted(df["Primary_Use_Case"].unique()))
+                                          sorted(df["Primary_Use_Case"].unique()),
+                                          key="predictor_use_case_select")
             inp_prompt_sk  = st.selectbox("🧠 Prompt Engineering Skill",
-                                          ["Beginner","Intermediate","Advanced"])
+                                          ["Beginner","Intermediate","Advanced"],
+                                          key="predictor_prompt_skill_select")
             inp_paid       = st.selectbox("💳 Paid AI Subscription",
-                                          ["No","Yes"])
+                                          ["No","Yes"],
+                                          key="predictor_paid_sub_select")
 
         fc4, fc5, fc6 = st.columns(3)
         with fc4:
@@ -848,7 +854,8 @@ def tab_predictor(df: pd.DataFrame) -> None:
         inp_skill_ret = st.slider(
             "🏆 Estimated Skill Retention Score (self-assess)",
             0.0, 100.0, 75.0, 1.0,
-            help="How well do you retain knowledge after using AI assistance?")
+            help="How well do you retain knowledge after using AI assistance?",
+            key="predictor_skill_retention_slider")
 
     st.markdown('<hr class="styled">', unsafe_allow_html=True)
 
